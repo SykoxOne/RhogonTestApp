@@ -1,0 +1,88 @@
+﻿body {
+    background: url(https://c7.staticflickr.com/2/1591/26234442190_bb7395c2eb_z.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#container {
+    text-align: center;
+}
+
+
+#weathericon {
+    font-size: 10em; 
+    margin-top: 3%; margin-bottom: 1%;
+}
+
+.hrdivider {
+    border: 1px double black;
+}
+
+.secondarySymbols {
+    font-size: 2.5em;
+}
+
+
+.secondarySymbolsSunrise{
+    font-size:1.5em;
+    margin-top:0.5em;
+}
+
+.floatLeft {
+    float: left;
+}
+
+.floatRight {
+    float: right;
+}
+
+.floatNone {
+    float: none;
+}
+
+.ForDataBoxes{
+    text-align:center;
+    clear:both;
+    margin:auto;
+    margin-left:5%;
+    margin-right:5%;
+    float:none;
+}
+
+h2{
+    font-size:1.5em;
+}
+
+.DataBox{
+    width:48%;
+    padding-top:1%;
+    height:11em;
+    background-color:rgba(203, 203, 203, 0.8);
+    border-radius:7px;
+    margin-left:1%;
+    margin-bottom:1%;
+    float:left;
+}
+
+.topSpace{
+    margin-top:5%;
+}
+
+#weatherStatus{
+    text-decoration:underline;
+}
+
+nav{
+    padding:5%;
+    padding-top:1.5%;
+    height:5em;
+    background-color: rgba(108, 105, 105, 0.5);
+    width:100%;
+}
+
+#Searchbar{
+    border-radius:7px;
+}
+

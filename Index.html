@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html>
+<html class="no-js">
+<head>
+    <title>Weather App</title>
+
+            
+    <!-- Bootstrap + Angular -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
+    <link href="Bootstrap/bootstrap.min.css" rel="stylesheet"/>
+    <link href="Bootstrap/mystyle.css" rel="stylesheet"/>
+    <link href="weather-icons-master/css/weather-icons.min.css" rel="stylesheet"/>
+    <link href="weather-icons-master/css/weather-icons-wind.min.css" rel="stylesheet"/>
+    <link href="StyleSheet.css" rel="stylesheet"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular.js"></script>
+    <link href="StyleSheet2.css" rel="stylesheet"/>
+
+
+    <!-- Scripts -->
+    <script src="App.js"></script>
+    <script src="clock.js"></script>
+</head>
+
+<body ng-controller="weatherController" onload="display_ct();">
+    <section class="rain">
+        <div id="container">
+            <div>
+                <nav class="navbar">
+                    <form ng-submit="search()" autocomplete="off">
+                        <div class="input-field">
+                            <input ng-model="location" id="search" class="form-control" type="search">
+                        </div>
+                    </form>
+                </nav>
+                <div class="row">
+                    <div class="form">
+                        <h1>
+                            <b>{{ DataFromLocation.name}}</b>
+                        </h1>
+                        <div class="form">
+                            <i class="wi wi-owm-{{DataFromLocation.weather[0].id}}" id="weathericon"></i>
+                            <h2 id="weatherStatus">
+                                <b>{{ DataFromLocation.weather[0].main}}</b>
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row topSpace">
+                    <div class="ForDataBoxes">
+                        <div class="DataBox">
+                            <h2>
+                                Sol op<br />
+                                <i class="wi wi-sunrise secondarySymbolsSunrise"></i>
+                                <b>
+                                    <p>{{ (DataFromLocation.sys.sunrise*1000) | date: 'HH:MM:ss' }}</p>
+                                </b>
+                            </h2>
+                        </div>
+                        <div class="DataBox">
+                            <h2>
+                                Sol ned<br />
+                                <i class="wi wi-sunset secondarySymbolsSunrise"></i>
+                                <b>
+                                    <p>{{ (DataFromLocation.sys.sunset*1000) | date: 'HH:MM:ss' }}</p>
+                                </b>
+                            </h2>
+                        </div>
+                        <div class="DataBox">
+                            <h2>
+                                Vind<br /><i id="WindSymbol" class="wi wi-wind towards-{{DataFromLocation.wind.deg | number: 0}}-deg secondarySymbols"></i>
+
+                            </h2>
+                            <b>{{DataFromLocation.wind.speed | number:2}} m/s</b>
+                        </div>
+                        <div class="DataBox">
+                            <h2>
+                                Grader<br />
+                                <b>{{ DataFromLocation.main.temp | number:1}}</b>
+                                <i class="wi wi-degrees "></i>
+                            </h2>
+                        </div>
+                        <div class="DataBox">
+                            <h2>
+                                Tid<br /><b>
+                                    <span id='ct'></span>
+                                </b>
+                            </h2>
+                        </div>
+                        <div class="DataBox">
+                            <h2>
+                                Dato <br /> <b>
+                                    <script type="text/javascript">
+                                        var d = new Date(),
+                                            months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                                            days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+                                        var time = days[d.getDay()] + ' ' + months[d.getMonth()] + ' ' + d.getDate() + ' ' + d.getFullYear();
+                                        document.write(time);
+                                    </script>
+                                </b>
+                            </h2>
+                        </div>
+                        <div class="DataBox">
+                            <h2>
+                                Fugtighed <br /> <b>
+                                    {{ DataFromLocation.main.humidity}}
+                                </b>
+                                <i class="wi wi-humidity"></i>
+                            </h2>
+                        </div>
+                        <div class="DataBox">
+                            <h2>
+                                Sidste opdatering <br /> <b>
+                                    <p>{{ lastSync |date: 'HH:mm:ss'}}</p>
+                                </b>
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
